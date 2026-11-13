@@ -8,6 +8,8 @@ metadata:
   modified: 2026-11-13T04:33:37.142Z
 ---
 
+# Push to main
+
 Commit and push directly to `main`; don't create feature branches or open PRs.
 
 **Why:** User's stated workflow for this repo ("we push to main").
