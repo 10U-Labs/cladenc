@@ -3,11 +3,89 @@ concurrency:
   cancel-in-progress: true
   group: ${{ github.workflow }}-${{ github.ref }}
 jobs:
-  placeholder:
+  assert-coverage:
+    needs:
+      - e2e-test-coverage
+      - integration-test-coverage
+      - unit-test-coverage
     runs-on: ubuntu-latest
     steps:
       - name: Placeholder
-        run: echo "No release steps yet"
+        run: echo "assert-coverage placeholder"
+  build-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "build-coverage placeholder"
+  build-debug:
+    needs: assert-coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "build-debug placeholder"
+  build-release:
+    needs:
+      - e2e-test-debug
+      - integration-test-debug
+      - unit-test-debug
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "build-release placeholder"
+  e2e-test-coverage:
+    needs: build-coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "e2e-test-coverage placeholder"
+  e2e-test-debug:
+    needs: build-debug
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "e2e-test-debug placeholder"
+  integration-test-coverage:
+    needs: build-coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "integration-test-coverage placeholder"
+  integration-test-debug:
+    needs: build-debug
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "integration-test-debug placeholder"
+  package:
+    needs: build-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "package placeholder"
+  release:
+    needs: test-package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "release placeholder"
+  test-package:
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "test-package placeholder"
+  unit-test-coverage:
+    needs: build-coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "unit-test-coverage placeholder"
+  unit-test-debug:
+    needs: build-debug
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "unit-test-debug placeholder"
   yamllint:
     runs-on: ubuntu-latest
     steps:
